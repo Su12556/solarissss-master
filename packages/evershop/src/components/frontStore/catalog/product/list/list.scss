@@ -1,0 +1,126 @@
+// Custom Carousel Section Start
+#bookAmtCarousel {
+    padding: 10rem 0;
+    background-color: #f2f2ff;
+    // @include x-767-tablet {
+    //   padding: 10rem 1rem;
+    // }
+    .sectionTitleWrap {
+    //   @include md-tablet {
+    //     text-align: center;
+    //   }
+    //   @include x-767-tablet {
+    //     margin-bottom: 4rem;
+    //   }
+      h2 {
+        // @include mainTitle;
+        margin-bottom: 1rem;
+      }
+      p {
+        // @include paraTypo;
+        margin-bottom: 0;
+        width: 60%;
+        // @include md-tablet {
+        //   width: 80%;
+        //   margin: 0 auto;
+        // }
+      }
+    }
+    .slider-container {
+      width: 100%;
+      overflow: hidden;
+      .buttons {
+        margin-bottom: 10px;
+        display: flex;
+        justify-content: flex-end;
+        gap: 2rem;
+        button {
+          background-color: transparent;
+          height: 5rem;
+          width: 5rem;
+          border-radius: 5rem;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          border: 0.1rem solid #5d5d5d;
+        //   @include x-767-tablet {
+        //     height: 4rem;
+        //     width: 4rem;
+        //   }
+          &:first-child {
+            span {
+              transform: rotate(-180deg);
+            }
+          }
+          &:disabled {
+            opacity: 0.5;
+          }
+        }
+      }
+      .slider {
+        transition: transform 0.5s ease-in-out;
+        .row {
+          padding: 1rem 0;
+        }
+        
+       
+      }
+    }
+    .resCard {
+        width: 50%;
+    //   @include md-tablet {
+    //     width: 50%;
+    //   }
+    //   @include x-767-tablet {
+    //     width: 100%;
+    //   }
+    }
+    .boxed {
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        height: 36.1rem;
+        width: 100%;
+        border: 0;
+        position: relative;
+        box-shadow: 0px 0px 15px -10px #757575;
+        border-radius: 0.6rem;
+        overflow: hidden;
+        .rightTopBox {
+          position: absolute;
+          right: 1.5rem;
+          top: 1.5rem;
+          h5 {
+            font-size: 2rem;
+            color: #a2b1d0;
+            margin-bottom: 0;
+          }
+          h6 {
+            margin-bottom: 0;
+            color: #919191;
+            font-size: 1.6rem;
+          }
+        }
+        .midlBox {
+          position: absolute;
+          top: 50%;
+          left: 2rem;
+          width: 60%;
+          h4 {
+            width: 80%;
+            font-size: 2.6rem;
+          //   @include d-desktop{
+          //     font-size: 2rem;
+          //   }
+          //   @include md-tablet {
+          //     font-size: 1.8rem;
+          //   }
+          }
+          p {
+          //   @include paraTypo;
+            font-size: 1.4rem;
+          }
+        }
+      }
+  }
+  // Custom Carousel Section End

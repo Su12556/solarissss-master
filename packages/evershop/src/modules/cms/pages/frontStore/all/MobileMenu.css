@@ -1,0 +1,35 @@
+.main-menu-mobile {
+  position: relative;
+}
+@media screen and (min-width: 768px) {
+  .main-menu-mobile {
+    display: none;
+  }
+}
+.main-menu-mobile .menu-icon svg {
+  width: 2.5rem;
+  height: 2.5rem;
+}
+.main-menu-mobile .nav {
+  position: absolute;
+  top: 100%;
+  right: -2.5rem;
+  padding: 2.5rem;
+  width: 100vw;
+  background-color: #fff;
+  z-index: 1000;
+}
+.main-menu-mobile .nav .nav-item {
+  padding: 1.5rem 0;
+  border-bottom: 1px solid var(--border);
+}
+.main-menu-mobile .nav .nav-item:first {
+  padding-top: 0;
+}
+.main-menu-mobile .nav .nav-item.last {
+  padding-bottom: 0;
+  border-bottom: none;
+}
+.main-menu-mobile .nav .nav-item a {
+  font-size: 1.6rem;
+}/*# sourceMappingURL=MobileMenu.css.map */

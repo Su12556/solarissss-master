@@ -1,0 +1,37 @@
+# Define AddressForm type
+type AddressForm {
+  id: ID!
+  full_name: String
+  telephone: String
+  address: String
+  city: String
+  country: String
+  province: String
+  post_code: String
+}
+
+# Define FilterInput if you use it
+input FilterInput {
+  field: String
+}
+
+# Define the queries in your schema
+type Query {
+  addressForm(id: ID!): AddressForm
+  addressForms(filters: [FilterInput]): [AddressForm]
+}
+
+# Define mutations
+input AddressFormInput {
+  full_name: String
+  telephone: String
+  address: String
+  city: String
+  country: String
+  province: String
+  post_code: String
+}
+
+type Mutation {
+  createAddressForm(input: AddressFormInput!): AddressForm
+}

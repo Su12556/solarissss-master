@@ -1,0 +1,41 @@
+{
+  "type": "object",
+  "properties": {
+    "full_name": {
+      "type": "string"
+    },
+    "telephone": {
+      "type": "string",
+      "pattern": "^[0-9]{10}$"
+    },
+    "address": {
+      "type": "string"
+    },
+    "city": {
+      "type": "string",
+      "minLength": 1
+    },
+    "country": {
+      "type": "string",
+      "enum": ["INDIA", "US", "CA", "Other"]
+    },
+    "province": {
+      "type": "string",
+      "minLength": 1
+    },
+    "post_code": {
+      "type": "string",
+      "pattern": "^[0-9]{5,6}$"
+    }
+  },
+  "additionalProperties": false,  
+  "required": [
+    "full_name",
+    "telephone",
+    "address",
+    "city",
+    "country",
+    "province",
+    "post_code"
+  ]
+}

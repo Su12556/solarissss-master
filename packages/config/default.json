@@ -1,0 +1,13 @@
+{
+    "system": {
+        "extensions":[
+            {
+                "name" : "addressForm",
+                "resolve" : "extensions/addressForm",
+                "enabled" : true,
+                "priority" : 10
+            }
+
+        ]
+    }
+}

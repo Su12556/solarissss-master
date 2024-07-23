@@ -1,0 +1,14 @@
+{
+  "type": "object",
+  "properties": {
+    "full_name": { "type": "string" },
+    "telephone": { "type": "string" },
+    "address": { "type": "string" },
+    "city": { "type": "string" },
+    "country": { "type": "string" },
+    "province": { "type": "string" },
+    "post_code": { "type": "string" }
+  },
+  "required": ["full_name", "telephone", "address", "city", "country", "province", "post_code"],
+  "additionalProperties": false
+}

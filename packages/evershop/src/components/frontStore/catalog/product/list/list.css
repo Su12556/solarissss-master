@@ -1,0 +1,86 @@
+#bookAmtCarousel {
+  padding: 10rem 0;
+  background-color: #f2f2ff;
+}
+#bookAmtCarousel .sectionTitleWrap h2 {
+  margin-bottom: 1rem;
+}
+#bookAmtCarousel .sectionTitleWrap p {
+  margin-bottom: 0;
+  width: 60%;
+}
+#bookAmtCarousel .slider-container {
+  width: 100%;
+  overflow: hidden;
+}
+#bookAmtCarousel .slider-container .buttons {
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: flex-end;
+  gap: 2rem;
+}
+#bookAmtCarousel .slider-container .buttons button {
+  background-color: transparent;
+  height: 5rem;
+  width: 5rem;
+  border-radius: 5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 0.1rem solid #5d5d5d;
+}
+#bookAmtCarousel .slider-container .buttons button:first-child span {
+  transform: rotate(-180deg);
+}
+#bookAmtCarousel .slider-container .buttons button:disabled {
+  opacity: 0.5;
+}
+#bookAmtCarousel .slider-container .slider {
+  transition: transform 0.5s ease-in-out;
+}
+#bookAmtCarousel .slider-container .slider .row {
+  padding: 1rem 0;
+}
+#bookAmtCarousel .resCard {
+  width: 50%;
+}
+#bookAmtCarousel .boxed {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 36.1rem;
+  width: 100%;
+  border: 0;
+  position: relative;
+  box-shadow: 0px 0px 15px -10px #757575;
+  border-radius: 0.6rem;
+  overflow: hidden;
+}
+#bookAmtCarousel .boxed .rightTopBox {
+  position: absolute;
+  right: 1.5rem;
+  top: 1.5rem;
+}
+#bookAmtCarousel .boxed .rightTopBox h5 {
+  font-size: 2rem;
+  color: #a2b1d0;
+  margin-bottom: 0;
+}
+#bookAmtCarousel .boxed .rightTopBox h6 {
+  margin-bottom: 0;
+  color: #919191;
+  font-size: 1.6rem;
+}
+#bookAmtCarousel .boxed .midlBox {
+  position: absolute;
+  top: 50%;
+  left: 2rem;
+  width: 60%;
+}
+#bookAmtCarousel .boxed .midlBox h4 {
+  width: 80%;
+  font-size: 2.6rem;
+}
+#bookAmtCarousel .boxed .midlBox p {
+  font-size: 1.4rem;
+}/*# sourceMappingURL=list.css.map */

@@ -1,0 +1,68 @@
+@mixin common-button {
+  .commBtnWrap {
+    button {
+      width: max-content;
+      gap: 1rem;
+      padding-right: 0.5rem;
+      height: 5rem;
+      border-radius: 5rem;
+      background-size: 100% 100%;
+      background-image: linear-gradient(
+        90deg,
+        rgba(45, 76, 195, 1) 45%,
+        rgba(154, 155, 237, 1) 100%
+      );
+      color: #fff;
+      border: 0;
+      font-size: 1.6rem;
+      margin-top: 2rem;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      padding-left: 1.5rem;
+      position: relative;
+      @include x-767-tablet {
+        font-size: 1.4rem;
+      }
+      span {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 4.2rem;
+        height: 4.2rem;
+        border-radius: 5rem;
+        background-color: #fff;
+        overflow: hidden;
+        will-change: transform;
+        .oldArrow {
+          transform: translateX(-135%);
+          transform-style: preserve-3d;
+          transition: transform 0.2s ease;
+          position: relative;
+        }
+        .newArrow {
+          transform: translateX(-55%);
+        }
+      }
+
+      &:hover {
+        background-position: 0% 100%;
+        transition: all 0.2s ease-in-out;
+        span {
+          .oldArrow {
+            transform: translateX(45%);
+          }
+          .newArrow {
+            transform: translateX(140%);
+          }
+        }
+      }
+    }
+  }
+}
+@mixin mainTitle {
+  font-size: 3rem;
+}
+@mixin paraTypo {
+  font-size: 1.8rem;
+}

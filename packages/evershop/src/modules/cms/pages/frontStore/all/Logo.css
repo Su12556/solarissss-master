@@ -1,0 +1,10 @@
+.logo {
+  display: flex;
+}
+.logo a.logo-icon {
+  margin-right: 0.5rem;
+}
+.logo a.logo-icon svg {
+  width: 3rem;
+  height: 3rem;
+}/*# sourceMappingURL=Logo.css.map */

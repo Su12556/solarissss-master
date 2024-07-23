@@ -1,0 +1,2118 @@
+@import "./mixin";
+@import "./media";
+@font-face {
+  font-family: "AeonikTRIAL-Bold";
+  src: url(./fonts/AeonikTRIAL-Bold.otf);
+}
+@font-face {
+  font-family: "AeonikTRIAL-Regular";
+  src: url(./fonts/AeonikTRIAL-Regular.otf);
+}
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+html {
+  font-size: 62.33%;
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+}
+ul {
+  li {
+    list-style: none;
+  }
+}
+a {
+  text-decoration: none;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+button {
+  font-family: "AeonikTRIAL-Bold";
+  color: #1d1d1f;
+}
+button {
+  font-family: "AeonikTRIAL-Bold";
+}
+p,
+span,
+strong,
+b,
+a,
+li,
+input {
+  font-family: "AeonikTRIAL-Regular";
+  color: #5d5d5d;
+}
+@include common-button;
+// Header Section Start
+#header {
+  position: fixed;
+  top: 5%;
+  left: 50%;
+  width: 86%;
+  display: flex;
+  transition: top 0.8s;
+  height: 6rem;
+  background: #fff;
+  box-shadow: 0 0px 10px #54545426;
+  z-index: 11;
+  transform: translateX(-50%);
+  justify-content: center;
+  align-items: center;
+  border-radius: 5rem;
+  padding: 0 0rem 0px 1rem;
+  .navbar {
+    .navbar-brand {
+      border-right: 0.1rem solid #000;
+      padding-right: 1rem;
+    }
+
+    #menuToggle {
+      width: 5rem;
+      height: 5rem;
+      border-radius: 5rem;
+      background: linear-gradient(
+        90deg,
+        rgb(45, 76, 195) 45%,
+        rgb(154, 155, 237) 100%
+      );
+
+      &.navbar-toggler {
+        border: 0;
+        @include md-tablet {
+          &:focus {
+            outline: none;
+            box-shadow: none;
+          }
+        }
+      }
+      input {
+        display: block;
+        width: 40px;
+        height: 32px;
+        position: absolute;
+        top: 14px;
+        right: 6px;
+        cursor: pointer;
+        opacity: 0; /* hide this */
+        z-index: 2; /* and place it over the hamburger */
+        -webkit-touch-callout: none;
+        &:checked {
+          ~ span {
+            opacity: 1;
+            transform: rotate(45deg) translate(-3px, -4px);
+            background: #fff;
+            &:nth-last-child(3) {
+              opacity: 1;
+              transform: rotate(-46deg) translate(-6px, 2px);
+              background: #fff;
+            }
+            &:nth-last-child(2) {
+              opacity: 0;
+              transform: rotate(0deg) scale(0.2, 0.2);
+            }
+          }
+        }
+      }
+      span {
+        display: block;
+        width: 33px;
+        height: 4px;
+        margin-bottom: 5px;
+        position: relative;
+        background: #fff;
+        border-radius: 3px;
+        z-index: 1;
+        transform-origin: 22px 0px;
+        transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1),
+          background 0.5s cubic-bezier(0.77, 0.2, 0.05, 1), opacity 0.55s ease;
+        transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1),
+          background 0.5s cubic-bezier(0.77, 0.2, 0.05, 1), opacity 0.55s ease;
+        &:nth-child(3) {
+          width: 20px;
+        }
+        &:first-child {
+          transform-origin: 0% 0%;
+        }
+        &:nth-last-child(2) {
+          margin: 0 0 5px 13px;
+        }
+        &:last-child {
+          margin-bottom: 0;
+        }
+      }
+    }
+    .navbar-collapse {
+      @include md-tablet {
+        background: #ffff;
+        box-shadow: 0 0 87px 0 rgba(0, 0, 0, 0.09);
+        border-radius: 0.6rem;
+        display: block;
+        height: auto;
+        right: -150%;
+        overflow-y: auto;
+        padding: 2rem 1.5rem;
+        position: fixed;
+        top: 100%;
+        transition: all 0.3s cubic-bezier(0, 0, 0.2, 1) 0.1s !important;
+        z-index: 99;
+        width: 100%;
+        &.show {
+          right: 0;
+          transition: all 0.3s cubic-bezier(0, 0, 0.2, 1) 0.1s !important;
+        }
+      }
+
+      .navbar-nav {
+        align-items: center;
+        column-gap: 2rem;
+      }
+    }
+    .navbar-nav {
+      align-items: center;
+      gap: 1rem;
+      &.extraLinks {
+        @include md-tablet {
+          display: none;
+        }
+      }
+    }
+    .nav-item {
+      &.rightBorder {
+        border-right: 0.1rem solid #000;
+        padding-right: 1rem;
+      }
+      .commBtnWrap {
+        button {
+          margin-top: 0;
+          // width: 11.8rem;
+        }
+      }
+      .nav-link {
+        @include paraTypo;
+        color: #919191;
+
+        &.active {
+          font-family: "AeonikTRIAL-Bold";
+          color: #000;
+        }
+      }
+    }
+  }
+}
+// Header Section End
+
+// Banner Section Start
+#bannerSection {
+  // background: radial-gradient(
+  //   at top,
+  //   #fff 27%,
+  //   #f4f6fa 57%,
+  //   rgba(226, 234, 247, 0.65) 100%
+  // );
+
+  background-image: url(./noisy-gradients.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  height: 100%;
+  padding: 9% 0 0;
+  @include d-desktop{
+    padding: 18% 0 0;
+  }
+  @include md-tablet {
+    padding: 20% 0 0;
+  }
+  @include x-767-tablet {
+    padding: 35% 0 0;
+  }
+  .container {
+    height: 100%;
+  }
+
+  .bannerContentRow {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+  }
+  .bannerTextWrap {
+    padding-bottom: 4rem;
+    .mainText {
+      font-size: 9.5rem;
+      // font-family: "AeonikTRIAL-Bold";
+      text-align: center;
+      @include d-1366-desktop{
+        font-size: 5.5rem;
+      }
+      
+      .gradientText {
+        position: relative;
+        width: -webkit-max-content;
+        width: max-content;
+        background: #6d24ba;
+        background: linear-gradient(
+          to right,
+          #6d24ba 0%,
+          #96e0f3 25%,
+          #a2b8f7 32%,
+          #a65ff8 49%,
+          #5949e0 77%,
+          #313ed3 100%
+        );
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        font-family: "AeonikTRIAL-Bold";
+      }
+    }
+    .mainPara {
+      width: 43%;
+      margin: 0 auto;
+      text-align: center;
+      @include paraTypo;
+    }
+
+    .commBtnWrap {
+      display: flex;
+      justify-content: center;
+    }
+  }
+  .centerBoxWrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    @include x-767-tablet {
+      display: none;
+    }
+    .priceTag {
+      .priceTagImg {
+        position: absolute;
+        top: -14%;
+        left: 27%;
+        @include d-1366-desktop{
+          left: 23%;
+        }
+        @include d-desktop{
+          left: 18%;
+        }
+        @include md-tablet {
+          left: 8%;
+        }
+      }
+      .priceAmt {
+        position: absolute;
+        top: -7.5%;
+        left: 29%;
+        transform: rotate(25deg);
+        font-size: 1.6rem;
+        font-family: "AeonikTRIAL-Bold";
+        color: #fff;
+        @include d-1366-desktop{
+          left: 25%;
+        }
+        @include d-desktop{
+          left: 20.5%;
+        }
+        @include md-tablet {
+          left: 12%;
+        }
+      }
+    }
+    .mainLaptop {
+      position: relative;
+      .overlapText {
+        position: absolute;
+        top: 50%;
+        left: 75%;
+        transform: translate(-50%, -50%);
+        color: #fff;
+        font-size: 4rem;
+        font-family: "AeonikTRIAL-Bold";
+        width: 100%;
+        @include md-tablet {
+          top: 45%;
+          left: 50%;
+          width: max-content;
+        }
+      }
+    }
+    .laptopBox {
+      margin-top: -0.3rem;
+    }
+    .absBox {
+      background: #fff;
+      display: flex;
+      flex-direction: column;
+      gap: 0.2rem;
+      padding: 1rem 2rem;
+      border-radius: 0.6rem;
+      box-shadow: 0 0px 10px #54545426;
+      position: absolute;
+      width: 30.4rem;
+      &.leftbox {
+        right: 0;
+        top: 0;
+      }
+      &.rightbox {
+        left: 0;
+        bottom: 40%;
+        @include d-1366-desktop{
+          bottom: 52%;
+        }
+      }
+      .boxTitle {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        .title {
+          font-size: 1.8rem;
+          font-family: "AeonikTRIAL-Bold";
+          color: #000;
+        }
+      }
+      p {
+        margin-bottom: 0;
+        font-size: 1.4rem;
+        font-family: "AeonikTRIAL-Regular";
+      }
+    }
+    .svgLine {
+      @include md-tablet {
+        display: none;
+      }
+    }
+  }
+}
+.svgLine {
+  position: absolute;
+  right: 0;
+  height: 100%;
+  width: 50%;
+  top: 25%;
+
+  &.leftArrow {
+    left: 0;
+    width: 36%;
+    @include d-1366-desktop{
+      top: 15%;
+    }
+  }
+  .st0 {
+    fill: none;
+    stroke: #000000;
+    stroke-miterlimit: 10;
+    stroke-dasharray: 1000;
+    stroke-dashoffset: 1000;
+    -webkit-animation: draw1 2s linear forwards;
+    animation: draw1 2s linear forwards;
+  }
+}
+
+// Banner Section
+@keyframes draw1 {
+  from {
+    stroke-dashoffset: 1000;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+// Clients Section Start
+#clients {
+  @include md-tablet {
+    padding: 0rem 0 3rem;
+    display: none;
+  }
+
+  .client-logo-listing {
+    background-color: #121010;
+    height: 135px;
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    z-index: 1;
+    .brands-marquee {
+      padding: 25px 0;
+    }
+    .js-marquee-wrapper {
+      display: flex;
+      align-items: center;
+      height: 100%;
+      animation: 140s linear 0s infinite normal none running
+        marqueeAnimation-3709221;
+      margin-left: 0px;
+      width: 18395px;
+      transform: translateX(0px);
+      &:hover {
+        animation: 140s linear 0s infinite normal none paused
+          marqueeAnimation-3709221 !important;
+      }
+    }
+    ul {
+      display: flex;
+      align-items: center;
+      height: 100%;
+      li {
+        padding: 0px 50px;
+        display: block;
+      }
+    }
+  }
+}
+.svg-sprite {
+  background-image: url(./css_sprites-02-08-2023.png);
+  background-repeat: no-repeat;
+  display: block;
+  height: 100px;
+  &.logo-brand-black-oracle {
+    background-position: 0px 0px;
+    width: 170px;
+  }
+
+  &.logo-brand-black-mtn {
+    background-position: -780px 0px;
+    width: 205px;
+  }
+  &.logo-brand-black-sanchobbdo {
+    background-position: -1355px 0px;
+    width: 190px;
+  }
+
+  &.logo-brand-black-gulfstream {
+    background-position: -162rem 0px;
+    width: 260px;
+  }
+
+  &.logo-brand-black-daman {
+    background-position: -1955px 0px;
+    width: 250px;
+  }
+
+  &.logo-brand-black-astrazeneca {
+    background-position: -2280px 0px;
+    width: 290px;
+  }
+
+  &.logo-brand-black-vfsglobal {
+    background-position: -2645px 0px;
+    width: 205px;
+  }
+
+  &.logo-brand-black-haas {
+    background-position: -2935px 0px;
+    width: 200px;
+  }
+
+  &.logo-brand-black-tata {
+    background-position: -3225px 0px;
+    width: 175px;
+  }
+
+  &.logo-brand-black-yahoo {
+    background-position: -3490px 0px;
+    width: 170px;
+  }
+
+  &.logo-brand-black-smithfield {
+    background-position: -3745px 0px;
+    width: 100px;
+  }
+
+  &.logo-brand-black-best-buy {
+    background-position: -392rem 0px;
+    width: 80px;
+  }
+
+  &.logo-brand-black-essilor {
+    background-position: -4085px 0px;
+    width: 175px;
+  }
+
+  &.logo-brand-black-cosmopolitan {
+    background-position: -4340px 0px;
+    width: 110px;
+  }
+
+  &.logo-brand-black-abbott {
+    background-position: -4535px 0px;
+    width: 170px;
+  }
+
+  &.logo-brand-black-unsw {
+    background-position: 0px -85px;
+    width: 175px;
+  }
+
+  &.logo-brand-black-lifetechnologies {
+    background-position: -22rem -85px;
+    width: 70px;
+  }
+
+  &.logo-brand-black-jacksoncoker {
+    background-position: -385px -95px;
+    width: 115px;
+  }
+
+  &.logo-brand-black-mcdonalds {
+    background-position: -595px -85px;
+    width: 200px;
+  }
+
+  &.logo-brand-black-vodafone {
+    background-position: -885px -85px;
+    width: 65px;
+  }
+
+  &.logo-brand-black-adidas {
+    background-position: -1045px -85px;
+    width: 185px;
+  }
+
+  &.logo-brand-black-ndtv {
+    background-position: -132rem -85px;
+    width: 150px;
+  }
+
+  &.logo-brand-black-kotak {
+    background-position: -1560px -75px;
+    width: 240px;
+  }
+
+  &.logo-brand-black-macys {
+    background-position: -1890px -80px;
+    width: 115px;
+  }
+
+  &.logo-brand-black-cartier {
+    background-position: -2100px -85px;
+    width: 185px;
+  }
+  &.svg-sprite.logo-cambridge-v3 {
+    background-position: -260px 0;
+    width: 160px;
+  }
+  &.abdul-latif-jameel-logo {
+    background-position: -515px 0;
+    width: 180px;
+  }
+  &.abdul-latif-jameel-logo-001 {
+    background-position: -1077px 0;
+    width: 200px;
+  }
+  &.logo-brand-black-Logo1 {
+    background-position: -2365px -85px;
+    width: 80px;
+  }
+  &.logo-brand-black-Logo2 {
+    background-position: -2535px -85px;
+    width: 110px;
+  }
+  &.logo-brand-black-Logo3 {
+    background-position: -2730px -85px;
+    width: 125px;
+  }
+  &.logo-brand-black-Logo4 {
+    background-position: -2940px -90px;
+    width: 165px;
+  }
+  &.logo-brand-black-Logo5 {
+    background-position: -3190px -90px;
+    width: 135px;
+  }
+  &.logo-brand-black-Logo6 {
+    background-position: -342rem -90px;
+    width: 225px;
+  }
+  &.logo-brand-black-Logo7 {
+    background-position: -3730px -95px;
+    width: 190px;
+  }
+  &.logo-brand-black-Logo8 {
+    background-position: -402rem -95px;
+    width: 110px;
+  }
+  &.logo-brand-black-Logo9 {
+    background-position: -4230px -95px;
+    width: 180px;
+  }
+  &.logo-brand-black-Logo10 {
+    background-position: -4510px -90px;
+    width: 215px;
+  }
+  &.logo-brand-black-Logo11 {
+    background-position: -0px -185px;
+    width: 200px;
+  }
+  &.logo-brand-black-Logo12 {
+    background-position: -295px -185px;
+    width: 200px;
+  }
+  &.logo-brand-black-Logo13 {
+    background-position: -555px -170px;
+    width: 135px;
+  }
+  &.logo-brand-black-Logo14 {
+    background-position: -765px -170px;
+    width: 225px;
+  }
+  &.logo-brand-black-Logo15 {
+    background-position: -1075px -175px;
+    width: 185px;
+  }
+  &.logo-brand-black-Logo16 {
+    background-position: -1335px -175px;
+    width: 165px;
+  }
+  &.logo-brand-black-Logo17 {
+    background-position: -1575px -175px;
+    width: 260px;
+  }
+  &.logo-brand-black-Logo18 {
+    background-position: -1910px -175px;
+    width: 245px;
+  }
+  &.logo-brand-black-Logo19 {
+    background-position: -2215px -175px;
+    width: 22rem;
+  }
+  &.logo-brand-black-Logo20 {
+    background-position: -2510px -175px;
+    width: 110px;
+  }
+  &.logo-brand-black-Logo21 {
+    background-position: -2700px -175px;
+    width: 70px;
+  }
+  &.logo-brand-black-Logo22 {
+    background-position: -2860px -175px;
+    width: 150px;
+  }
+  &.logo-brand-black-Logo23 {
+    background-position: -3070px -175px;
+    width: 255px;
+  }
+  &.logo-brand-black-Logo24 {
+    background-position: -3400px -175px;
+    width: 90px;
+  }
+  &.logo-brand-black-Logo25 {
+    background-position: -3580px -175px;
+    width: 75px;
+  }
+  &.logo-brand-black-Logo26 {
+    background-position: -3735px -175px;
+    width: 245px;
+  }
+  &.logo-brand-black-Logo27 {
+    background-position: -4065px -175px;
+    width: 265px;
+  }
+  &.logo-brand-black-Logo28 {
+    background-position: -4390px -175px;
+    width: 290px;
+  }
+  &.logo-brand-black-Logo29 {
+    background-position: 0px -265px;
+    width: 250px;
+  }
+  &.logo-brand-black-Logo30 {
+    background-position: -325px -265px;
+    width: 235px;
+  }
+  &.logo-brand-black-Logo31 {
+    background-position: -630px -265px;
+    width: 145px;
+  }
+  &.logo-brand-black-Logo32 {
+    background-position: -855px -265px;
+    width: 150px;
+  }
+  &.logo-brand-black-Logo33 {
+    background-position: -1075px -265px;
+    width: 170px;
+  }
+  &.logo-brand-black-Logo34 {
+    background-position: -132rem -265px;
+    width: 140px;
+  }
+  &.logo-brand-black-Logo35 {
+    background-position: -1540px -265px;
+    width: 130px;
+  }
+  &.logo-brand-black-Logo36 {
+    background-position: -1750px -265px;
+    width: 225px;
+  }
+  &.logo-brand-black-Logo37 {
+    background-position: -2035px -265px;
+    width: 180px;
+  }
+  &.logo-brand-black-Logo38 {
+    background-position: -2295px -265px;
+    width: 200px;
+  }
+  &.logo-brand-black-Logo39 {
+    background-position: -2580px -265px;
+    width: 75px;
+  }
+  &.logo-brand-black-Logo40 {
+    background-position: -2750px -265px;
+    width: 80px;
+  }
+  &.logo-brand-black-Logo41 {
+    background-position: -2900px -265px;
+    width: 135px;
+  }
+  &.logo-brand-black-Logo42 {
+    background-position: -312rem -265px;
+    width: 180px;
+  }
+  &.logo-brand-black-Logo43 {
+    background-position: -3370px -265px;
+    width: 265px;
+  }
+  &.logo-brand-black-Logo44 {
+    background-position: -3705px -265px;
+    width: 150px;
+  }
+  &.logo-brand-black-Logo45 {
+    background-position: -3935px -265px;
+    width: 125px;
+  }
+}
+@keyframes marqueeAnimation-3709221 {
+  100% {
+    transform: translateX(-100%);
+  }
+}
+// Clients Section End
+
+// Product Feature Section Start
+#productFeature {
+  padding: 10rem 0;
+
+  .leftBox {
+    @include md-tablet {
+      text-align: center;
+    }
+    h2 {
+      @include mainTitle;
+      margin-bottom: 1rem;
+    }
+    p {
+      @include paraTypo;
+      margin-bottom: 0;
+      @include md-tablet {
+        width: 80%;
+        margin: 0 auto;
+      }
+    }
+    .commBtnWrap {
+      @include md-tablet {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 3rem;
+      }
+      @include x-767-tablet {
+        margin-bottom: 8rem;
+      }
+    }
+  }
+  .slider-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .main-image-container {
+      position: relative;
+      width: 50rem;
+      height: 30rem;
+      text-align: center;
+      @include d-desktop{
+        width: 35rem;
+      }
+      @include x-767-tablet {
+        width: 100%;
+      }
+      .main-image {
+        width: 100%;
+        height: 100%;
+        transition: transform 0.3s ease-in-out;
+        object-fit: cover;
+      }
+      .color-container {
+        position: absolute;
+        right: -7.5rem;
+        top: 0;
+        display: flex;
+        // gap: 1rem;
+        row-gap: 0.5rem;
+        width: 14%;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        @include x-767-tablet {
+          right: 10px;
+          top: -35px;
+        }
+        .colorBox {
+          height: 2rem;
+          width: 2rem;
+          cursor: pointer;
+        }
+        .color-black {
+          background-color: #2f2f2f;
+        }
+        .color-gray {
+          background-color: rgb(148, 148, 148);
+        }
+        .color-red {
+          background-color: rgb(255, 31, 31);
+        }
+        .color-green {
+          background-color: rgb(136, 255, 31);
+        }
+      }
+    }
+
+    .thumbnail-container {
+      display: flex;
+      justify-content: center;
+      margin-top: 2rem;
+      gap: 2rem;
+      flex-wrap: wrap;
+      width: 50rem;
+      padding: 1rem;
+      border: 0.1rem solid #dddddd;
+      border-radius: 0.3rem;
+      @include x-767-tablet {
+        width: 100%;
+      }
+      .thumbNailBox {
+        width: 8rem;
+        height: 8rem;
+        margin: 0 0.5rem;
+        cursor: pointer;
+      }
+      .thumbnail {
+        transition: opacity 0.3s;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        &.active {
+          opacity: 0.5;
+          & ~ .main-image {
+            transform: scale(0.8);
+          }
+        }
+      }
+    }
+  }
+}
+// Product Feature Section End
+
+// Solaris Book Grid Section Start
+#solarisGridSection {
+  padding: 10rem 0;
+  background-image: url(./gide-bg.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  height: 100%;
+  @include x-767-tablet {
+    padding: 10rem 1rem;
+  }
+  .gridWrap {
+    margin-bottom: 4rem;
+    h2 {
+      @include mainTitle;
+      margin-bottom: 1rem;
+      text-align: center;
+      color: #fff;
+    }
+    p {
+      @include paraTypo;
+      margin-bottom: 0;
+      text-align: center;
+      color: #d9d9d9;
+      width: 45%;
+      margin: 0 auto;
+      @include md-tablet {
+        width: 80%;
+      }
+    }
+  }
+  .bookGrid {
+    display: grid;
+    grid-column-gap: 2rem;
+    grid-row-gap: 2rem;
+    .grid {
+      height: 100%;
+      width: 100%;
+      border-radius: 0.8rem;
+      overflow: hidden;
+      position: relative;
+      .floatBox {
+        position: absolute;
+        .roundBox {
+          background-color: #fff;
+          width: 18rem;
+          height: 4.5rem;
+          border-radius: 5rem;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          margin-bottom: 1rem;
+          span {
+            font-family: "AeonikTRIAL-Bold";
+            font-size: 1.8rem;
+            color: #313234;
+          }
+        }
+        p {
+          font-family: "AeonikTRIAL-Regular";
+          font-size: 1.4rem;
+          color: #fff;
+        }
+        &.float1 {
+          width: 60%;
+          left: 5%;
+          bottom: 10%;
+        }
+        &.float2 {
+          width: 40%;
+          right: 5%;
+          bottom: 10%;
+          display: flex;
+          flex-direction: column;
+          .roundBox {
+            width: 25rem;
+          }
+        }
+      }
+      .flotTitle {
+        position: absolute;
+        span {
+          font-family: "AeonikTRIAL-Bold";
+          font-size: 3rem;
+          color: #313234;
+          @include d-desktop{
+            font-size: 2.4rem;
+          }
+          @include md-tablet{
+            font-size: 5rem;
+          }
+          @include x-767-tablet{
+            font-size: 3rem;
+          }
+        }
+
+        &.title1 {
+          top: 10%;
+          left: 5%;
+        }
+        &.title2 {
+          right: 5%;
+          top: 25%;
+        }
+        &.title3 {
+          left: 5%;
+          top: 40%;
+        }
+      }
+      img {
+        width: 100%;
+        height: 100%;
+      }
+    }
+    .btmBox {
+      position: absolute;
+      .lightTxt {
+        font-family: "AeonikTRIAL-Bold";
+        color: #b3b3b3;
+        font-size: 1.8rem;
+        margin-bottom: 0;
+      }
+      .darkTxt {
+        font-family: "AeonikTRIAL-Bold";
+        color: #313234;
+        font-size: 1.8rem;
+        margin-bottom: 0;
+      }
+      &.boxed1 {
+        bottom: 5%;
+        left: 5%;
+      }
+      &.boxed2 {
+        bottom: 5%;
+        right: 5%;
+      }
+      &.boxed3 {
+        top: 5%;
+        right: 5%;
+      }
+    }
+    .grid1 {
+      grid-area: 1 / 1 / 2 / 2;
+      @include md-tablet {
+        grid-area: 1 / 1 / 2 / 2;
+      }
+    }
+    .grid2 {
+      grid-area: 1 / 2 / 2 / 4;
+      @include md-tablet {
+        grid-area: 2 / 1 / 3 / 2;
+      }
+    }
+    .grid3 {
+      grid-area: 2 / 1 / 3 / 2;
+      @include md-tablet {
+        grid-area: 3 / 1 / 4 / 2;
+      }
+      .svgLine {
+        height: auto;
+        width: 70%;
+        top: 53%;
+        stroke-width: 0.3rem;
+        left: 20%;
+      }
+    }
+    .grid4 {
+      grid-area: 2 / 2 / 3 / 3;
+      @include md-tablet {
+        grid-area: 4 / 1 / 5 / 2;
+      }
+      .svgLine {
+        height: auto;
+        top: 55%;
+        width: 85%;
+        left: 15%;
+        stroke-width: 0.3rem;
+      }
+    }
+    .grid5 {
+      grid-area: 2 / 3 / 3 / 4;
+      @include md-tablet {
+        grid-area: 5 / 1 / 6 / 2;
+      }
+      .svgLine {
+        height: auto;
+        top: 54%;
+        width: 100%;
+        left: -4%;
+        stroke-width: 0.3rem;
+      }
+    }
+  }
+}
+// Solaris Book Grid Section End
+
+// Feature Slider Section Start
+#featureSliderSection {
+  padding: 10rem 0;
+  @include x-767-tablet {
+    padding: 10rem 1rem;
+  }
+  .sectionTitleWrap {
+    h2 {
+      @include mainTitle;
+      margin-bottom: 1rem;
+      text-align: center;
+    }
+    p {
+      @include paraTypo;
+      margin-bottom: 0;
+      text-align: center;
+      width: 45%;
+      margin: 0 auto;
+      @include md-tablet {
+        width: 100%;
+      }
+    }
+  }
+  .slider {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+  }
+
+  .slider-wrapper {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+  }
+
+  .slide {
+    flex: 1 0 100%;
+    min-width: 100%;
+    cursor: grab;
+  }
+
+  .dots {
+    text-align: center;
+    margin-top: 5rem;
+    padding: 1rem 0;
+  }
+
+  .dot {
+    display: inline-block;
+    width: 2rem;
+    height: 2rem;
+    margin: 0 5px;
+    border-radius: 50%;
+    background-color: #c5c6d9;
+    border: 0.1rem solid #a9a9a9;
+
+    cursor: pointer;
+  }
+
+  .dot.active {
+    background-color: #2d4cc3;
+    box-shadow: 0px 0.4rem 0.8rem -0.2rem #202020;
+    border: 0;
+  }
+  .parent {
+    display: grid;
+    grid-column-gap: 3rem;
+    grid-row-gap: 4rem;
+    padding-top: 8rem;
+    padding-bottom: 3rem;
+  }
+  .box {
+    height: 20rem;
+    width: 100%;
+    @include md-tablet {
+      height: 100%;
+    }
+    .contentWrap {
+      span {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 4rem;
+        height: 4rem;
+        border-radius: 5rem;
+        background-color: #d0d3f7;
+        margin-bottom: 0.5rem;
+        @include md-tablet {
+          text-align: center;
+          margin: 0 auto;
+        }
+      }
+      h6 {
+        font-size: 2rem;
+        @include md-tablet {
+          text-align: center;
+        }
+      }
+      p {
+        @include paraTypo;
+        @include md-tablet {
+          text-align: center;
+        }
+      }
+    }
+  }
+  .div1 {
+    grid-area: 1 / 1 / 2 / 2;
+    margin: 0 0 0 auto;
+    @include md-tablet {
+      grid-area: 1 / 1 / 2 / 2;
+      margin: unset;
+    }
+    @include x-767-tablet {
+      grid-area: 1 / 1 / 2 / 2;
+    }
+    .contentWrap {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      @include md-tablet {
+        align-items: center;
+      }
+      p {
+        text-align: right;
+        @include md-tablet {
+          text-align: center;
+        }
+      }
+    }
+  }
+  .div2 {
+    grid-area: 2 / 1 / 3 / 2;
+    margin: 0 0 0 auto;
+    @include md-tablet {
+      grid-area: 1 / 2 / 2 / 3;
+      margin: unset;
+    }
+    @include x-767-tablet {
+      grid-area: 2 / 1 / 3 / 2;
+    }
+    .contentWrap {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      @include md-tablet {
+        align-items: center;
+      }
+      p {
+        text-align: right;
+        @include md-tablet {
+          text-align: center;
+        }
+      }
+    }
+  }
+  .div3 {
+    grid-area: 1 / 3 / 2 / 4;
+    @include md-tablet {
+      grid-area: 2 / 1 / 3 / 2;
+    }
+    @include x-767-tablet {
+      grid-area: 3 / 1 / 4 / 2;
+    }
+  }
+  .div4 {
+    grid-area: 2 / 3 / 3 / 4;
+    @include md-tablet {
+      grid-area: 2 / 2 / 3 / 3;
+    }
+    @include x-767-tablet {
+      grid-area: 4 / 1 / 5 / 2;
+    }
+  }
+  .div5 {
+    grid-area: 1 / 2 / 2 / 3;
+    width: 100%;
+    position: relative;
+    @include md-tablet {
+      display: none;
+    }
+    .spinner {
+      animation: rotate 11s linear infinite;
+      -webkit-animation: rotate 11s linear infinite;
+      -moz-animation: rotate 11s linear infinite;
+      position: relative;
+      pointer-events: none;
+    }
+    @keyframes rotate {
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    @-webkit-keyframes rotate {
+      to {
+        -webkit-transform: rotate(360deg);
+      }
+    }
+
+    @-moz-keyframes rotate {
+      to {
+        transform: rotate(360deg);
+      }
+    }
+    .midImagWrap {
+      width: 45rem;
+      height: 45rem;
+      position: absolute;
+      top: 24%;
+      left: 1%;
+      img {
+        width: 100%;
+        height: auto;
+      }
+    }
+  }
+}
+
+// Feature Slider Section End
+
+// Window Pro 11 Section Start
+#windowProSection {
+  padding: 10rem 0;
+  background-color: #e0e0e0;
+  @include d-1366-desktop{
+    padding: 10rem 0 6rem;
+  }
+  @include d-desktop{
+    padding: 10rem 0 9rem;
+  }
+  @include x-767-tablet {
+    padding: 10rem 1rem;
+  }
+  .custRow {
+    justify-content: flex-end;
+    align-items: center;
+    position: relative;
+    &::before {
+      content: "";
+      background-image: url(./globeline.png);
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: left;
+      width: 72%;
+      height: 75rem;
+      position: absolute;
+      left: -200px;
+      top: -9%;
+      z-index: 9;
+      pointer-events: none;
+      animation: rotate 220s linear infinite reverse;
+      -webkit-animation: rotate 220s linear infinite reverse;
+      -moz-animation: rotate 220s linear infinite reverse;
+      @include d-1366-desktop{
+        width: 66%;
+        height: 58rem;
+        left: -145px;
+        top: -5%;
+      }
+      @include d-desktop{
+        width: 68%;
+        height: 58rem;
+        left: -100px;
+        top: -5%;
+      }
+      @include md-tablet {
+        content: none;
+      }
+    }
+    &::after {
+      content: "";
+      background-image: url(./globemaine2.png);
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: left;
+      width: 49%;
+      height: 65rem;
+      position: absolute;
+      left: -50px;
+      top: 0%;
+      pointer-events: none;
+      animation: rotate 240s linear infinite;
+      -webkit-animation: rotate 240s linear infinite;
+      -moz-animation: rotate 240s linear infinite;
+      @include d-1366-desktop{
+        width: 45%;
+        height: 51rem;
+        left: -30px;
+        top: 2%;
+      }
+      @include d-desktop{
+        width: 48%;
+        height: 46rem;
+        left: -5px;
+        top: 7%;
+      }
+      @include md-tablet {
+        content: none;
+      }
+    }
+    .leftImgWrap {
+      .lapImgWRap {
+        width: 100%;
+        height: 100%;
+        z-index: 10;
+        position: relative;
+        img {
+          width: 100%;
+          height: 100%;
+          pointer-events: none;
+        }
+      }
+      @include md-tablet {
+        display: none;
+      }
+    }
+    .winProTitleWrap {
+      @include md-tablet {
+        text-align: center;
+      }
+      h2 {
+        @include mainTitle;
+        margin-bottom: 1rem;
+      }
+      p {
+        @include paraTypo;
+        margin-bottom: 0;
+      }
+    }
+    .winProList {
+      margin-top: 3rem;
+      ul {
+        padding-left: 0;
+        &.secondList {
+          padding-left: 4rem;
+          @include x-767-tablet {
+            padding-left: 0;
+          }
+        }
+        li {
+          margin-bottom: 4rem;
+          @include md-tablet {
+            text-align: center;
+          }
+          &:last-child {
+            margin-bottom: 0;
+          }
+          h5 {
+            font-size: 2.6rem;
+            margin-bottom: 0.2rem;
+          }
+          p {
+            @include paraTypo;
+            margin-bottom: 0;
+          }
+        }
+      }
+    }
+  }
+}
+// Window Pro 11 Section End
+
+// Solaris Benefits Section Start
+#solarisBenefits {
+  padding: 10rem 0 6rem;
+  background-color: #f2f2ff;
+  .mobView {
+    @include x-767-tablet {
+      display: none;
+    }
+  }
+  @include x-767-tablet {
+    padding: 10rem 1rem 6rem;
+  }
+  .sectionTitleBox {
+    @include md-tablet {
+      text-align: center;
+    }
+    h2 {
+      @include mainTitle;
+      margin-bottom: 1rem;
+    }
+    p {
+      @include paraTypo;
+      margin-bottom: 0;
+      width: 80%;
+      @include md-tablet {
+        margin: 0 auto;
+      }
+    }
+  }
+  .commBtnWrap {
+    @include md-tablet {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 3rem;
+    }
+  }
+  .leftImgWrap {
+    position: relative;
+    .svgLine {
+      position: absolute;
+      right: 31.5%;
+      width: 29%;
+      top: 50%;
+      stroke-width: 0.4rem;
+    }
+    .topImgContentWrap {
+      position: absolute;
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+      top: 8%;
+      padding: 0 3rem;
+      h6 {
+        font-size: 2rem;
+        line-height: 1.4;
+      }
+      .leftBoxOverlay {
+        height: 8rem;
+        width: 50%;
+        background-color: #205cdc;
+        padding: 1rem;
+        border-radius: 0.4rem;
+        @include d-desktop{
+          width: 68%;
+        }
+        @include md-tablet{
+          width: 50%;
+        }
+        span {
+          font-size: 1.4rem;
+          color: #fff;
+          @include d-desktop{
+            font-size: 1.2rem;
+          }
+          @include md-tablet{
+            font-size: 1.4rem;
+          }
+        }
+      }
+    }
+    img {
+      width: 100%;
+      height: 100%;
+    }
+  }
+  .leftBtmImg {
+    position: relative;
+    .overLay {
+      position: absolute;
+      &.overlayText1 {
+        top: 12%;
+        left: 8%;
+        width: 70%;
+      }
+      &.overlayText2 {
+        top: 5%;
+        left: 5%;
+        width: 60%;
+      }
+      h6 {
+        font-size: 2rem;
+        line-height: 1.4;
+      }
+    }
+    img {
+      width: 100%;
+      height: 100%;
+    }
+  }
+}
+// Solaris Benefits Section End
+
+// Prgressive Slider Section Start
+#purePerformanceSection {
+  position: relative;
+  background-image: url(./progressbg.svg);
+  background-position: bottom;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  height: 100%;
+  padding-top: 8rem;
+  @include x-767-tablet {
+    padding: 8rem 1rem 0;
+  }
+  .progress-slider {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    position: relative;
+    .slide-container {
+      display: flex;
+      transition: transform 0.5s ease;
+      height: 100%;
+      padding-top: 15rem;
+      @include md-tablet {
+        padding-top: 8rem;
+        padding-bottom: 3rem;
+      }
+      .slide {
+        flex: 0 0 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        .slideWrapping {
+          @include x-767-tablet {
+            text-align: center;
+          }
+          h6 {
+            font-size: 2rem;
+          }
+          h4 {
+            @include mainTitle;
+          }
+          p {
+            @include paraTypo;
+          }
+          .commBtnWrap {
+            @include x-767-tablet {
+              display: flex;
+              justify-content: center;
+              margin-bottom: 3rem;
+            }
+          }
+        }
+        .displayImgWrap {
+          img {
+            width: 100%;
+            height: 100%;
+          }
+        }
+      }
+    }
+  }
+  .progress-btns {
+    position: absolute;
+    top: 15%;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+    display: flex;
+    width: 93%;
+    height: 2rem;
+    justify-content: space-evenly;
+    align-items: center;
+    @include x-767-tablet {
+      top: 10%;
+    }
+    .slide-button {
+      width: 20%;
+      .progress-bar {
+        height: 1rem;
+        background-color: #b2cef7;
+        width: 100%;
+        border-radius: 5rem;
+        cursor: pointer;
+        .progress {
+          height: 100%;
+          background-color: #2d4cc3;
+        }
+      }
+    }
+  }
+}
+// Prgressive Slider Section End
+
+// Custom Carousel Section Start
+#bookAmtCarousel {
+  padding: 10rem 0;
+  background-color: #f2f2ff;
+  @include x-767-tablet {
+    padding: 10rem 1rem;
+  }
+  .sectionTitleWrap {
+    @include md-tablet {
+      text-align: center;
+    }
+    @include x-767-tablet {
+      margin-bottom: 4rem;
+    }
+    h2 {
+      @include mainTitle;
+      margin-bottom: 1rem;
+    }
+    p {
+      @include paraTypo;
+      margin-bottom: 0;
+      width: 60%;
+      @include md-tablet {
+        width: 80%;
+        margin: 0 auto;
+      }
+    }
+  }
+  .slider-container {
+    width: 100%;
+    overflow: hidden;
+    .buttons {
+      margin-bottom: 10px;
+      display: flex;
+      justify-content: flex-end;
+      gap: 2rem;
+      button {
+        background-color: transparent;
+        height: 5rem;
+        width: 5rem;
+        border-radius: 5rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border: 0.1rem solid #5d5d5d;
+        @include x-767-tablet {
+          height: 4rem;
+          width: 4rem;
+        }
+        &:first-child {
+          span {
+            transform: rotate(-180deg);
+          }
+        }
+        &:disabled {
+          opacity: 0.5;
+        }
+      }
+    }
+    .slider {
+      transition: transform 0.5s ease-in-out;
+      .row {
+        padding: 1rem 0;
+        display: flex;
+        flex-wrap: nowrap;
+      }
+      .resCard {
+        @include md-tablet {
+          width: 50%;
+        }
+        @include x-767-tablet {
+          width: 100%;
+        }
+      }
+      .boxed {
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        height: 36.1rem;
+        width: 100%;
+        border: 0;
+        position: relative;
+        box-shadow: 0px 0px 15px -10px #757575;
+        border-radius: 0.6rem;
+        overflow: hidden;
+        .rightTopBox {
+          position: absolute;
+          right: 1.5rem;
+          top: 1.5rem;
+          h5 {
+            font-size: 2rem;
+            color: #a2b1d0;
+            margin-bottom: 0;
+          }
+          h6 {
+            margin-bottom: 0;
+            color: #919191;
+            font-size: 1.6rem;
+          }
+        }
+        .midlBox {
+          position: absolute;
+          top: 50%;
+          left: 2rem;
+          width: 60%;
+          h4 {
+            width: 80%;
+            font-size: 2.6rem;
+            @include d-desktop{
+              font-size: 2rem;
+            }
+            @include md-tablet {
+              font-size: 1.8rem;
+            }
+          }
+          p {
+            @include paraTypo;
+            font-size: 1.4rem;
+          }
+        }
+      }
+    }
+  }
+}
+// Custom Carousel Section End
+
+// Pre Booking Section Start
+#preOrderBookingSection {
+  padding: 8rem 0 0;
+  background-image: url(./prebooking-gradients.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  height: auto;
+  @include x-767-tablet {
+    padding: 8rem 1rem 0;
+  }
+  .sectionTitleBox {
+    margin-bottom: 3rem;
+    h2 {
+      @include mainTitle;
+      margin-bottom: 1rem;
+      text-align: center;
+    }
+    p {
+      @include paraTypo;
+      margin-bottom: 0;
+      width: 55%;
+      margin: 0 auto;
+      text-align: center;
+      @include md-tablet {
+        width: 80%;
+      }
+    }
+  }
+  .halfLaptopWrap {
+    position: relative;
+    img {
+      width: 100%;
+      height: 100%;
+    }
+    .bookInputWrap {
+      position: absolute;
+      top: 60%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 45%;
+      @include md-tablet {
+        width: 75%;
+      }
+      form {
+        width: 100%;
+        margin-bottom: 2rem;
+        .form-control {
+          height: 5rem;
+          position: relative;
+          border-radius: 5rem;
+          padding: 0 1.5rem;
+          font-size: 1.6rem;
+          color: #919191;
+          background-color: #fff;
+          z-index: unset;
+          &:focus {
+            outline: none;
+            box-shadow: none;
+          }
+        }
+        .bookBtn {
+          background: #2d7ce7;
+          color: #fff;
+          height: 5rem;
+          width: max-content;
+          border-radius: 5rem;
+          border: 0;
+          font-size: 1.6rem;
+          position: absolute;
+          right: 0;
+          top: 0;
+          padding: 0 1rem;
+        }
+      }
+      p {
+        @include paraTypo;
+        color: #fff;
+        text-align: center;
+        width: 80%;
+        margin: 0 auto;
+        @include x-767-tablet {
+          font-size: 1.4rem;
+        }
+      }
+    }
+  }
+}
+// Pre Booking Section End
+
+// Footer Section Start
+#footer {
+  padding: 6rem 0 10rem;
+  background-image: url(./foobg.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 100%;
+  width: 100%;
+  height: auto;
+  position: relative;
+  // @include x-767-tablet {
+  //   padding: 8rem 1rem 21rem;
+  //   height: 100%;
+  //   background-size: cover;
+  // }
+  @include d-1366-desktop{
+    background-size: 100% 100%;
+  }
+  .footerWrap {
+    justify-content: space-between;
+    padding: 0 2rem;
+    @include d-1366-desktop{
+      padding: 0 5rem;
+    }
+    @include d-desktop{
+      padding: 0 6rem;
+    }
+    @include x-767-tablet {
+      gap: 4rem;
+    }
+    .foologoWrap {
+      a {
+        @include x-767-tablet {
+          width: 100%;
+          height: 100%;
+          display: flex;
+        }
+        img {
+          width: 40%;
+          @include x-767-tablet {
+            margin: 0 auto;
+          }
+        }
+      }
+    }
+    .commBtnWrap {
+      @include x-767-tablet {
+        display: flex;
+        justify-content: center;
+      }
+      button {
+        margin-top: 0;
+      }
+    }
+  }
+  .padTop {
+    padding: 5rem 2rem 0;
+    justify-content: space-between;
+    // align-items: center;
+     @include d-1366-desktop{
+      padding: 5rem 5rem 0;
+    }
+    @include d-desktop{
+      padding: 5rem 6rem 0;
+    }
+    @include x-767-tablet {
+      padding-top: 2rem;
+      gap: 4rem;
+    }
+  }
+  .subscriptionBox {
+    @include x-767-tablet {
+      text-align: center;
+    }
+    h6 {
+      @include mainTitle;
+      font-size: 2.4rem;
+    }
+    p {
+      @include paraTypo;
+      line-height: 1.2;
+      @include d-1366-desktop{
+        font-size: 1.6rem;
+      }
+    }
+    .subscriptionFormWrap {
+      position: relative;
+    }
+    form {
+      .form-control {
+        width: 80%;
+        height: 3rem;
+        border-bottom: 0.1rem solid #000 !important;
+        position: relative;
+        background-color: transparent;
+        border-radius: 0;
+        border: 0;
+        font-size: 1.6rem;
+        color: #919191;
+        margin-top: 2rem;
+        &:focus {
+          outline: none;
+          box-shadow: none;
+        }
+      }
+      .subBtn {
+        position: absolute;
+        right: 20%;
+        top: 0;
+        background-color: transparent;
+        border: 0;
+      }
+    }
+  }
+  .fooLinksWrap {
+    ul {
+      padding-left: 0;
+      margin-bottom: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      @include x-767-tablet {
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+        flex-direction: row;
+      }
+      li {
+        a {
+          @include paraTypo;
+        }
+      }
+    }
+  }
+  .cirtificateBox {
+    @include x-767-tablet {
+      text-align: center;
+    }
+    h6 {
+      font-family: "AeonikTRIAL-Regular";
+      font-size: 2rem;
+      color: #919191;
+    }
+  }
+  .cpyWriteText {
+    @include x-767-tablet {
+      text-align: center;
+    }
+    p {
+      font-family: "AeonikTRIAL-Bold";
+      color: #1d1d1f;
+      font-size: 1.8rem;
+      margin-bottom: 0;
+    }
+  }
+  .copyWriteSection {
+    align-items: center;
+    justify-content: space-between;
+    position: absolute;
+    width: 100%;
+    bottom: 5%;
+    left: 5px;
+    padding: 0 12rem;
+    @include d-1366-desktop{
+      padding: 0 11rem;
+    }
+    @include d-desktop{
+      padding: 0 9rem;
+    }
+    @include x-767-tablet {
+      padding-top: 3rem;
+      gap: 2rem;
+      bottom: 0%;
+    }
+    .socialLinksWrap {
+      ul {
+        padding-left: 0;
+        margin-bottom: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 1rem;
+        li {
+          a {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 4rem;
+            height: 4rem;
+            border-radius: 5rem;
+            background: #2d4cc3;
+            &:hover {
+              background-color: #758add;
+
+              svg {
+                path {
+                  fill: #fff;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+// Footer Section End
+
+.h100 {
+  height: 100vh;
+  &:nth-child(even) {
+    background-color: red;
+  }
+}
