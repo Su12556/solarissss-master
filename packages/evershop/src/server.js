@@ -5,11 +5,14 @@ const { pool } = require('./lib/postgres/connection');
 const { addressSchema } = require('./lib/validation/validation');
 const apiResponse = require('./modules/base/api/global/[apiResponse]apiErrorHandler');
 const saveAddressForm = require('./modules/catalog/api/createAddressForm/saveAddressForm');
+const addressRoutes = require('./modules/address/routes/addressRoutes');
+
 
 const app = express();
 const PORT = 3001;
 
 app.use(bodyParser.json());
+app.use('/api', addressRoutes);
 
 // Test database connection
 pool.connect((err) => {
@@ -81,7 +84,7 @@ app.post('/api/addressForm', validate, saveAddressForm, async (req, res) => {
     }
 });
 
-// app.use(apiResponse);
+ app.use(apiResponse);
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
 });

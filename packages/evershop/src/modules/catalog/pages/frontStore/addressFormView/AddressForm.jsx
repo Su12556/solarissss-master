@@ -207,7 +207,7 @@ export const layout = {
 export const query = `
   query Query {
     action: url(routeId: "createAddressForm")
-    gridUrl: url(routeId: "addressList")
+    
     addressForm (id: getContextValue('address_form_id')) {
       full_name
       telephone

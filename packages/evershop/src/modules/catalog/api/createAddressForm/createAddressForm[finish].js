@@ -1,11 +1,14 @@
+const createAddressForm = require('../../services/address/createAddressForm');
 
-const createAddressForm = require("../../services/address/createAddressForm");
-
-
-// eslint-disable-next-line no-unused-vars
 module.exports = async (request, response, delegate) => {
-  const result = await createAddressForm(request.body, {
-    routeId: request.currentRoute.id
-  });
-  return result;
+  try {
+    const result = await createAddressForm(request.body, {
+      routeId: request.currentRoute.id
+    });
+    delegate.createAddressForm = result; 
+    return result;
+  } catch (error) {
+    console.error('Error in createAddressForm[finish]:', error.message);
+    response.status(500).json({ error: 'Internal Server Error' });
+  }
 };

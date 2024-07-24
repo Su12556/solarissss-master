@@ -1,4 +1,4 @@
-// eslint-disable-next-line no-multi-assign
+
 module.exports = exports = {};
 
 class Router {
