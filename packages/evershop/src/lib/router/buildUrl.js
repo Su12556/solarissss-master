@@ -1,5 +1,4 @@
 const { getRoutes } = require('./Router');
-
 const { compile } = require('../pathToRegexp');
 
 // eslint-disable-next-line no-multi-assign

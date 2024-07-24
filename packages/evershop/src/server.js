@@ -4,7 +4,7 @@ const { insert, select } = require('@evershop/postgres-query-builder');
 const { pool } = require('./lib/postgres/connection');
 const { addressSchema } = require('./lib/validation/validation');
 const apiResponse = require('./modules/base/api/global/[apiResponse]apiErrorHandler');
-const saveAddressForm = require('./modules/catalog/api/createAddressForm/saveAddressForm');
+// const saveAddressForm = require('./modules/catalog/api/createAddressForm/saveAddressForm');
 const addressRoutes = require('./modules/address/routes/addressRoutes');
 
 
@@ -40,7 +40,7 @@ const validate = (req, res, next) => {
     next();
 };
 
-app.post('/api/addressForm', validate, saveAddressForm, async (req, res) => {
+app.post('/api/addressForm', validate, async (req, res) => {
     console.log('Received request body:', req.body);
 
     const { full_name, telephone, address, city, country, province, post_code } = req.body;
@@ -79,8 +79,8 @@ app.post('/api/addressForm', validate, saveAddressForm, async (req, res) => {
             data: insertedData
         });
     } catch (error) {
-        // console.error('Error inserting address form:', error.stack || error);
-        // res.status(500).json({ message: 'Server error', error: error.message });
+        console.error('Error in /serting address form:', error.stack || error);
+        res.status(500).json({ message: 'Server error', error: error.message });
     }
 });
 

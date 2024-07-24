@@ -1,27 +1,12 @@
-// const express = require('express');
-// const router = express.Router();
-// const { list, view, edit } = require('../controllers/addressController');
-// const { addRoute } = require('@evershop/evershop/src/lib/router/Router');
+// D:\solarissss-master\packages\evershop\src\modules\address\routes\addressRoutes.js
 
-// router.get('/addressGrid', list);
-// router.get('/addressView/:address_form_id', view);
-// router.get('/addressEdit/:address_form_id', edit);
+const { Router } = require('express');
+const { addressGridHandler, addressViewHandler, addressEditHandler } = require('../handlers/addressHandlers');
 
-// // Register routes in Router instance
-// addRoute({ id: 'addressGrid', path: '/api/addressGrid' });
-// addRoute({ id: 'addressView', path: '/api/addressView/:address_form_id' });
-// addRoute({ id: 'addressEdit', path: '/api/addressEdit/:address_form_id' });
+const router = Router();
 
-// module.exports = router;
-
-
-const express = require('express');
-const router = express.Router();
-
-// Define your route handlers
-router.get('/addressGrid', (req, res) => {
-  // Your route logic here
-  res.send('Address Grid');
-});
+// router.get('/addressGrid', addressGridHandler);
+router.get('/addressView/:address_form_id', addressViewHandler);
+router.get('/addressEdit/:address_form_id', addressEditHandler);
 
 module.exports = router;

@@ -10,24 +10,24 @@ module.exports = async (request, response, delegate, next) => {
       data: {
         ...address,
         links: [
-          {
-            rel: 'addressGrid',
-            href: buildUrl('addressGrid'),
-            action: 'GET',
-            types: ['text/xml']
-          },
-          {
-            rel: 'view',
-            href: buildUrl('addressView', { address_form_id: address.address_form_id }),
-            action: 'GET',
-            types: ['text/xml']
-          },
-          {
-            rel: 'edit',
-            href: buildUrl('addressEdit', { address_form_id: address.address_form_id }),
-            action: 'GET',
-            types: ['text/xml']
-          }
+        //   {
+        //     rel: 'addressGrid',
+        //     href: buildUrl('addressGrid'),
+        //     action: 'GET',
+        //     types: ['text/xml']
+        //   },
+        //   {
+        //     rel: 'view',
+        //     href: buildUrl('addressView', { address_form_id: address.address_form_id }),
+        //     action: 'GET',
+        //     types: ['text/xml']
+        //   },
+        //   {
+        //     rel: 'edit',
+        //     href: buildUrl('addressEdit', { address_form_id: address.address_form_id }),
+        //     action: 'GET',
+        //     types: ['text/xml']
+        //   }
         ]
       }
     });

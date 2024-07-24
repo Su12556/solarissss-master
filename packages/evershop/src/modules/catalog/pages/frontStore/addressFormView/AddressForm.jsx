@@ -1,6 +1,8 @@
 import PropTypes from 'prop-types';
 import React, { useState } from 'react';
 import axios from 'axios';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const provincesInIndia = [
   "Andhra Pradesh", "Arunachal Pradesh", "Assam", "Bihar",
@@ -55,17 +57,19 @@ function AddressForm({ address, handleChange, currentStep }) {
       }
   
       // Show success message
+      toast.success('Form submitted successfully!');
       alert('Address saved successfully!');
     } catch (error) {
       console.error('Error saving data:', error);
-      // const errorMessage = error.response?.data?.message || error.message || 'Server error';
-      // alert(`Error saving address: ${errorMessage}`);
+      // Show error message
+      toast.error('Error saving address. Please try again.');
     }
   };
 
   return (
     currentStep === 3 && (
       <div>
+        <ToastContainer />
         <h3>Address Form</h3>
         <form id="addressForm" onSubmit={handleSubmit}>
           <div className="mb-3">
@@ -207,7 +211,6 @@ export const layout = {
 export const query = `
   query Query {
     action: url(routeId: "createAddressForm")
-    
     addressForm (id: getContextValue('address_form_id')) {
       full_name
       telephone
